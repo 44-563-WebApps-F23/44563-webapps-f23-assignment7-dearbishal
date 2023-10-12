@@ -19,30 +19,32 @@
   <button type="button" class="btn btn-success" onclick="recordTime()">React</button>
 
   <script>
-    let reactTime = undefined;
+  let reactTime = undefined;
 
-    function recordTime() {
-      reactTime = Date.now();
-      console.log(reactTime);
-    }
+  function recordTime() {
+    reactTime = Date.now();
+    console.log(reactTime);
+  }
 
-    function startTime() {
-      for (let i = 0; i < 9; i++) {
-        setTimeout(function() {
-          document.getElementById('counter').innerHTML = 'Count: ' + i;
-        }, (8 - i) * 1000);
+  function startTime() {
+    let randomCountDown = Math.round(Math.random() * (10 - 2) + 2)
+      for(let i=0;i<randomCountDown;i++){
+        setTimeout(function () {
+          document.getElementById("count").innerHTML = "Count: " + i;
+          }, (8 - i) * 1000);
       }
-
-      setTimeout(function() {
-        if (reactTime === undefined) {
-          document.getElementById('target').innerHTML = 'Too Slow';
-        } else {
-          const endTime = Date.now();
-          const elapsedTime = endTime - reactTime;
-          document.getElementById('target').innerHTML = 'Time was ' + elapsedTime + 'ms';
-        }
-      }, 8000);
     }
+
+    setTimeout(function() {
+      if (reactTime === undefined) {
+        document.getElementById('target').innerHTML = 'Too Slow';
+      } else {
+        const endTime = Date.now();
+        const elapsedTime = endTime - reactTime;
+        document.getElementById('target').innerHTML = 'Time was ' + elapsedTime + 'ms';
+      }
+    }, 8000);
+  
   </script>
 </body>
 </html>

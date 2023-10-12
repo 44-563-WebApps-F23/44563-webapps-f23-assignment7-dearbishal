@@ -211,6 +211,17 @@
   penalty += 2;
   document.getElementById("penalty").textContent = "Penalty is " + penalty;
 }
+function reset() {
+  checkCount = 0;
+  penalty = 0
+  treasureLocation = Math.round(Math.random() * (24));
+  trapLocation = Math.round(Math.random() * (24));
+  document.getElementById("locations").innerHTML = `Number of locations checked is ${checkCount}`
+  document.getElementById("penalty").innerHTML = `Penalty is ${penalty}`
+
+}
+
+
   </script>
 </body>
 </html>

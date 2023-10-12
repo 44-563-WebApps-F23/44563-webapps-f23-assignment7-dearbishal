@@ -29,16 +29,46 @@
 	<p>Press the button to create a new element of type div and then add it to the container.</p>
 	<input type="text" id="textInput" placeholder="Enter text">
 	<button onclick="makeNewDiv()">Add end</button>
+	<button onclick="remove()">Remove</button>
+	<button onclick="addFront()">Add Front</button>
 
 </body>
 <script>
-	function makeNewDiv() {
-		var inputValue = document.getElementById('textInput').value;
-		var element = document.createElement('div');
-		element.innerHTML = inputValue;
-		element.className = "merger";
-		var container = document.getElementById('target');
-		container.appendChild(element);
-	}
+	function makeNewDiv(){
+			/* make the div and its text */
+			let element = document.createElement("div")
+			element.innerHTML = document.getElementById("textInput").value;
+			element.className = "merger"
+			element.style.color = "red"
+	
+			/* add it to the container */
+			let container = document.getElementById('target')
+			container.appendChild(element)
+			
+		}
+
+function remove() {
+    let mergerItems = document.getElementsByClassName("merger");
+    const lengthOfmergerItems = mergerItems.length;
+    if (lengthOfmergerItems > 0) {
+        mergerItems[Math.floor(lengthOfmergerItems / 2)].remove();
+    }
+}
+
+function addFront() {
+    let element = document.createElement("div");
+    element.innerHTML = document.getElementById("textInput").value;
+    element.className = "merger";
+    element.style.color = "red";
+
+    let parent = document.getElementById("target");
+    let firstChild = parent.querySelector('.merger'); 
+    if (firstChild) {
+        parent.insertBefore(element, firstChild);
+    } else {
+        parent.appendChild(element); 
+    }
+}
+
 </script>
 </html>	
